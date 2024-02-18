@@ -20,7 +20,7 @@ server.listen(3000,() =>{
 
 
 server.get('/teste', (req, res) => {
-        return res.json(dados.teste);
+        return res.json(dados.pessoas);
 });
 
 
