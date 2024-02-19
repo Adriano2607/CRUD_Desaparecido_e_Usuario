@@ -15,13 +15,13 @@
 <body>
 
     <header>
-        <img src="newLogo.png" alt="logo" style="height: 3.5vh;">
+        <img src="../../../assets/newLogo.png" alt="logo" style="height: 3.5vh;">
         <nav>
             <ul>
                 <li><a href="">HOME</li></a>
-                <li><a href="/src/telas/cadastrar/index.html">INSERIR</li></a>
+                <li><a href="/src/telas/cadastrarDesaparecido/cadastrar/index.html">INSERIR</li></a>
                 <li><a href="">FÓRUM</li></a>
-                <li><a href="/src/telas/view/visualizar.html">DESAPARECIDOS</li></a>
+                <li><a href="/src/telas/cadastrarDesaparecido/view/visualizar.html">DESAPARECIDOS</li></a>
                 <li><a href="">LOCALIZAR</li></a>
                 <li><a href="">ENTRAR</a></li>
             </ul>
@@ -30,7 +30,7 @@
     </header>
 
     <main>
-        <article>
+        
 
             <form id="form" action="#">
 
@@ -42,38 +42,32 @@
                             <input type="text" required id="nome">
 
                             <label for="cpf">IDADE: </label>
-                            <input type="number" required id="cpf">
+                            <input type="number" required id="idade">
 
                             <label for="username">GENERO: </label>
-                            <input type="text" required id="username">
+                            <input type="text" required id="genero">
 
                             <label for="senha">OLHOS: </label>
-                            <input type="text" required id="senha">
-
-
+                            <input type="text" required id="olhos">
 
                             <label for="nome">ALTURA: </label>
-                            <input type="text" required id="nome">
+                            <input type="text" required id="altura">
 
                             <label for="cpf">PESO: </label>
-                            <input type="number" required id="cpf">
-
-
+                            <input type="number" required id="peso">
 
                             <label for="senha">CABELO: </label>
-                            <input type="text" required id="senha">
+                            <input type="text" required id="cabelo">
 
                             <label for="username">RESIDENTE EM: </label>
-                            <input type="text" required id="username">
-
+                            <input type="text" required id="residente">
 
                         </div>
-
 
                         <div id="content-form1">
 
                             <label for="senha">FOTO: </label>
-                            <input type="text" required id="contato">
+                            <input type="text" required id="foto">
 
                             <label for="nome">ULTIMA VEZ VISTO: </label>
                             <input type="text" required id="ultima">
@@ -81,38 +75,24 @@
                             <label for="cpf">VESTIMENTAS: </label>
                             <input type="number" required id="vestimentas">
 
-
-
-
                             <label for="senha">DATA DESAPARECIMENTO: </label>
-                            <input type="text" required id="contato">
+                            <input type="text" required id="data">
 
                             <label for="senha">CARACTERISITICAS FISICAS: </label>
-                            <input type="text" required id="contato">
-
+                            <input type="text" required id="caracte">
 
                             <label for="senha">CONTATO: </label>
                             <input type="text" required id="contato">
 
                             <label for="senha">DETALHES DESAPARECIMENTO: </label>
-                            <textarea name="" id="" cols="20" rows="5"></textarea>
-
+                            <textarea name="" id="detalhes-desaparecimento" cols="20" rows="5"></textarea>
 
                         </div>
-
-
-
                     </div>
 
-
-                    <input type="submit" value="Criar sua conta" id="btn">
-
-
-
-
+                    <input type="submit" value="cadastrar" id="btn" onclick="addDesaparecidos()">
             </form>
 
-        </article>
 
 
 
@@ -120,11 +100,12 @@
 
     <footer>
         <p>Entre em contato pelo WhatsApp</p>
-        <img src="whatsapp (1).png" alt="">
+        <img src="../../../assets/whatsapp (1).png" alt="">
     </footer>
 
 
    
+    <script src="../../../client/clientDesaparecidos.js"></script>
 </body>
 
 

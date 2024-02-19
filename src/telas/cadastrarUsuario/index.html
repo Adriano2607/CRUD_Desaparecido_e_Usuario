@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleUsuario.css">
+    <title>CRIAR CONTA</title>
+</head>
+
+<body>
+    <header>
+        <img src="../../assets/newLogo.png" alt="logo" style="height: 3.5vh;">
+        <nav>
+            <ul>
+                <li><a href="">HOME</a></li>
+                <li><a href="">INSERIR</a></li>
+                <li><a href="">FÓRUM</a></li>
+                <li><a href="">LOCALIZAR</a></li>
+                <li><a href="">ENTRAR</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <form id="form" action="#">
+            <p>Crie sua conta</p>
+            <span>Crie uma conta para ver e cadastrar pessoas.</span>
+            <label for="nome">NOME: </label>
+            <input type="text" required id="nome">
+            <label for="cpf">CPF: </label>
+            <input type="number" required id="cpf">
+            <label for="username">USERNAME: </label>
+            <input type="text" required id="username">
+            <label for="senha">SENHA: </label>
+            <input type="text" required id="senha">
+            <input type="submit" value="Criar sua conta" id="btn" onclick="addUsuario()">
+            <button id="viewBtn">VIEW</button>
+        </form>
+    </main>
+
+    <div id="overlay"></div>
+    <div id="modal"></div>
+
+    <footer>
+        <p>Entre em contato pelo WhatsApp</p>
+        <img src="../../assets/whatsapp (1).png" alt="">
+    </footer>
+
+    <script src="./../../client/clientUsuario.js"></script>
+    <script>
+        
+     
+
+        fetch(`http://localhost:3000/usuarios`)
+            .then(response => response.json())
+            .then(function (json) {
+              
+                json.forEach(element => {
+                    name(element)
+                   
+                });
+            })
+            .catch(error => console.error('Erro na requisição:', error));
+
+        function name(params) {
+            const modal = document.getElementById('modal')
+            const overlay = document.getElementById('overlay')
+            const viewBtn = document.getElementById('viewBtn');
+          
+            modal.innerHTML += `
+              
+                <p>nome: ${params.nome}</p>
+                <p>cpf: ${params.cpf}</p>
+                <p>username: ${params.username}</p>
+                <p>senha: ${params.senha}</p>
+            `;
+
+            viewBtn.onclick = function(){
+            modal.style.display = 'block'
+            overlay.style.display = 'block'
+        }
+
+            overlay.onclick = function(){
+            modal.style.display = 'none'
+            overlay.style.display = 'none'
+        }
+
+        }
+
+
+
+       
+    </script>
+</body>
+
+</html>

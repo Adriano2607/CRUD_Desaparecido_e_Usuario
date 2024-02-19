@@ -10,13 +10,13 @@
 
 <body>
     <header>
-        <img src="newLogo.png" alt="logo" style="height: 3.5vh;">
+        <img src="../../../assets/newLogo.png" alt="logo" style="height: 3.5vh;">
         <nav>
             <ul>
                 <li><a href="">HOME</li></a>
-                <li><a href="/src/telas/cadastrar/index.html">INSERIR</li></a>
+                <li><a href="/src/telas/cadastrarDesaparecido/cadastrar/index.html">INSERIR</li></a>
                 <li><a href="">FÓRUM</li></a>
-                <li><a href="/src/telas/view/visualizar.html">DESAPARECIDOS</li></a>
+                <li><a href="/src/telas/cadastrarDesaparecido/view/visualizar.html">DESAPARECIDOS</li></a>
                 <li><a href="">LOCALIZAR</li></a>
                 <li><a href="">ENTRAR</a></li>
             </ul>
@@ -34,7 +34,7 @@
     <script>
         let arrayPessoas = []
 
-        fetch(`http://localhost:3000/teste`)
+        fetch(`http://localhost:3000/desaparecidos`)
             .then(response => response.json())
             .then(function (json) {
                 console.log(json)
@@ -52,7 +52,7 @@
             const div = document.createElement('div')
             div.classList = 'container-thumb'
             div.onclick = function(){
-                renderItem(object.id)
+                renderItem(object.nome_completo)
             }
             div.innerHTML = `
 
@@ -64,11 +64,11 @@
             document.getElementById('main').appendChild(div);
         }
 
-        function renderItem(id) {
+        function renderItem(nome) {
             const modal = document.getElementById('modal')
 
             modal.innerHTML = ''
-            const pessoa = arrayPessoas.find(p => p.id === parseInt(id))
+            const pessoa = arrayPessoas.find(p => p.nome_completo === nome)
             const div = document.createElement('div')
             div.classList = 'container'
             div.innerHTML = `
