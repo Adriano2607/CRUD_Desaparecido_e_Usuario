@@ -15,23 +15,25 @@
             <ul>
                 <li><a href="">HOME</li></a>
                 <li><a href="/src/telas/cadastrarDesaparecido/cadastrar/index.html">INSERIR</li></a>
-                <li><a href="">FÓRUM</li></a>
                 <li><a href="/src/telas/cadastrarDesaparecido/view/visualizar.html">DESAPARECIDOS</li></a>
                 <li><a href="">LOCALIZAR</li></a>
-                <li><a href="">ENTRAR</a></li>
+                <li><a href="">FÓRUM</li></a>
+                <li><a href="/src/telas/cadastrarUsuario/index.html">ENTRAR</a></li>
             </ul>
         </nav>
 
     </header>
 
     <main id="main">
-            
+
     </main>
     <div id="overlay"></div>
     <div id="modal"></div>
 
-
+<script src="../../../client/clientDesaparecidos.js"></script>
     <script>
+          const modal = document.getElementById('modal')
+          const overlay = document.getElementById('overlay')
         let arrayPessoas = []
 
         fetch(`http://localhost:3000/desaparecidos`)
@@ -51,7 +53,7 @@
         function thumb(object) {
             const div = document.createElement('div')
             div.classList = 'container-thumb'
-            div.onclick = function(){
+            div.onclick = function () {
                 renderItem(object.nome_completo)
             }
             div.innerHTML = `
@@ -65,8 +67,7 @@
         }
 
         function renderItem(nome) {
-            const modal = document.getElementById('modal')
-
+          
             modal.innerHTML = ''
             const pessoa = arrayPessoas.find(p => p.nome_completo === nome)
             const div = document.createElement('div')
@@ -78,7 +79,7 @@
                 </div>
                 
                     <div>
-                        <p>Idade: ${pessoa.idade}</p>
+                <p>Idade: ${pessoa.idade}</p>
                 <p>Genero: ${pessoa.genero}</p>
                 <p>Olhos: ${pessoa.olhos}</p>
                 <p>Altura: ${pessoa.altura}</p>
@@ -91,21 +92,85 @@
                 <p>Catacteristicas Fisicas: ${pessoa.caracteristicas_fisicas}</p>
                 <p>Contato: ${pessoa.contato}</p>
                 <p>Detalhes: ${pessoa.detalhes_desaparecimento}</p>
+                <button onclick='deleteDesaparecido(${pessoa.id})'> Excluir </button>
+                <button onclick='alterar(${pessoa.id})'> Alterar </button>
                         </div>
                
            `
 
 
-             modal.style.display = 'block';
-             overlay.style.display = 'block';
+            modal.style.display = 'block';
+            overlay.style.display = 'block';
             modal.appendChild(div);
         }
 
+
+        function alterar(id) {
+              
+              const pessoa = arrayPessoas.find(p => p.id === id);
+              modal.innerHTML = `
+              <div id='alterar'>
+                            <label for="nome">NOME COMPLETO: </label>
+                            <input type="text" required id="nomeAlterar">
+
+                            <label for="cpf">IDADE: </label>
+                            <input type="number" required id="idadeAlterar">
+
+                            <label for="username">GENERO: </label>
+                            <input type="text" required id="generoAlterar">
+
+                            <label for="senha">OLHOS: </label>
+                            <input type="text" required id="olhosAlterar">
+
+                            <label for="nome">ALTURA: </label>
+                            <input type="text" required id="alturaAlterar">
+
+                            <label for="cpf">PESO: </label>
+                            <input type="number" required id="pesoAlterar">
+
+                            <label for="senha">CABELO: </label>
+                            <input type="text" required id="cabeloAlterar">
+
+                            <label for="username">RESIDENTE EM: </label>
+                            <input type="text" required id="residenteAlterar">
+
+                            <label for="senha">FOTO: </label>
+                            <input type="text" required id="fotoAlterar">
+
+                            <label for="nome">ULTIMA VEZ VISTO: </label>
+                            <input type="text" required id="ultimaAlterar">
+
+                            <label for="cpf">VESTIMENTAS: </label>
+                            <input type="number" required id="vestimentasAlterar">
+
+                            <label for="senha">DATA DESAPARECIMENTO: </label>
+                            <input type="text" required id="dataAlterar">
+
+                            <label for="senha">CARACTERISITICAS FISICAS: </label>
+                            <input type="text" required id="caracteAlterar">
+
+                            <label for="senha">CONTATO: </label>
+                            <input type="text" required id="contatoAlterar">
+
+                            <label for="senha">DETALHES DESAPARECIMENTO: </label>
+                            <textarea name="" id="detalhes-desaparecimentoAlterar" cols="20" rows="5"></textarea>
+
+                            <input type='submit' onclick='updateDesaparecido(${pessoa.id})'>
+                        </div>
+              `   
+                
+                modal.style.display = 'block';
+              
+          }
+
+
+
+
         overlay.onclick = function () {
-    modal.style.display = 'none';
-    overlay.style.display = 'none';
-  
-};
+            modal.style.display = 'none';
+            overlay.style.display = 'none';
+
+        };
     </script>
 </body>
 

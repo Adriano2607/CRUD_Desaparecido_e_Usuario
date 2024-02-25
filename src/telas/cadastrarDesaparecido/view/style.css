@@ -112,6 +112,15 @@
 
 }
 
+#alterar{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: #4D4B4B;
+    padding: 25px;
+    border-radius: 10px;
+}
+
 
 #modal {
     display: none;

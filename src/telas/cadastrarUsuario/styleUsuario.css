@@ -45,6 +45,21 @@ header > nav > ul > li > a{
 }
 
 
+.success-message{
+  color: red;
+}
+
+.alterarDiv{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background-color: #141414;
+  padding: 15px;
+  color: white;
+}
+
 
 header > nav > ul > li >a:hover {
 border-bottom: 1px solid white;
