@@ -44,9 +44,28 @@ header > nav > ul > li > a{
   transition: border-bottom .3s ease; 
 }
 
+header > nav > ul > li >a:hover {
+  border-bottom: 1px solid white;
+  }
+  
+  
+  
+  header > nav > ul > li::after {
+  content: "";
+  border-left: 1px solid white;
+  margin-left: 1em;
+  }
 
-.success-message{
-  color: red;
+header > nav > ul > li >a:hover {
+border-bottom: 1px solid white;
+}
+
+
+
+header > nav > ul > li::after {
+content: "";
+border-left: 1px solid white;
+margin-left: 1em;
 }
 
 .alterarDiv{
@@ -61,17 +80,7 @@ header > nav > ul > li > a{
 }
 
 
-header > nav > ul > li >a:hover {
-border-bottom: 1px solid white;
-}
 
-
-
-header > nav > ul > li::after {
-content: "";
-border-left: 1px solid white;
-margin-left: 1em;
-}
 
 
 
