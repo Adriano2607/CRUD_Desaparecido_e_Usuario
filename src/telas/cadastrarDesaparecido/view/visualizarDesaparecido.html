@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../../../formulario.css">
     <title>Document</title>
 </head>
 
@@ -36,10 +37,10 @@
         <img src="../../../assets/whatsapp (1).png" alt="">
     </footer>
 
-<script src="../../../client/clientDesaparecidos.js"></script>
+    <script src="../../../client/clientDesaparecidos.js"></script>
     <script>
-          const modal = document.getElementById('modal')
-          const overlay = document.getElementById('overlay')
+        const modal = document.getElementById('modal')
+        const overlay = document.getElementById('overlay')
         let arrayPessoas = []
 
         fetch(`http://localhost:3000/desaparecidos`)
@@ -73,7 +74,7 @@
         }
 
         function renderItem(nome) {
-          
+
             modal.innerHTML = ''
             const pessoa = arrayPessoas.find(p => p.nome_completo === nome)
             const div = document.createElement('div')
@@ -112,62 +113,72 @@
 
 
         function alterar(id) {
-              
-              const pessoa = arrayPessoas.find(p => p.id === id);
-              modal.innerHTML = `
-              <div id='alterar'>
-                            <label for="nome">NOME COMPLETO: </label>
-                            <input type="text" required id="nomeAlterar">
 
-                            <label for="cpf">IDADE: </label>
-                            <input type="number" required id="idadeAlterar">
+            const pessoa = arrayPessoas.find(p => p.id === id);
+            modal.innerHTML = `
+              <form id="form" action="#">
 
-                            <label for="username">GENERO: </label>
-                            <input type="text" required id="generoAlterar">
+<div>
+    <div id="container-form">
+       
+        <div id="content-form">
+            <label for="nome">NOME COMPLETO: </label>
+            <input type="text" required id="nomeAlterar">
 
-                            <label for="senha">OLHOS: </label>
-                            <input type="text" required id="olhosAlterar">
+            <label for="cpf">IDADE: </label>
+            <input type="number" required id="idadeAlterar">
 
-                            <label for="nome">ALTURA: </label>
-                            <input type="text" required id="alturaAlterar">
+            <label for="username">GENERO: </label>
+            <input type="text" required id="generoAlterar">
 
-                            <label for="cpf">PESO: </label>
-                            <input type="number" required id="pesoAlterar">
+            <label for="senha">OLHOS: </label>
+            <input type="text" required id="olhosAlterar">
 
-                            <label for="senha">CABELO: </label>
-                            <input type="text" required id="cabeloAlterar">
+            <label for="nome">ALTURA: </label>
+            <input type="text" required id="alturaAlterar">
 
-                            <label for="username">RESIDENTE EM: </label>
-                            <input type="text" required id="residenteAlterar">
+            <label for="cpf">PESO: </label>
+            <input type="number" required id="pesoAlterar">
 
-                            <label for="senha">FOTO: </label>
-                            <input type="text" required id="fotoAlterar">
+            <label for="senha">CABELO: </label>
+            <input type="text" required id="cabeloAlterar">
 
-                            <label for="nome">ULTIMA VEZ VISTO: </label>
-                            <input type="text" required id="ultimaAlterar">
+            <label for="username">RESIDENTE EM: </label>
+            <input type="text" required id="residenteAlterar">
 
-                            <label for="cpf">VESTIMENTAS: </label>
-                            <input type="number" required id="vestimentasAlterar">
+        </div>
 
-                            <label for="senha">DATA DESAPARECIMENTO: </label>
-                            <input type="text" required id="dataAlterar">
+        <div id="content-form1">
 
-                            <label for="senha">CARACTERISITICAS FISICAS: </label>
-                            <input type="text" required id="caracteAlterar">
+            <label for="senha">FOTO: </label>
+            <input type="text" required id="fotoAlterar">
 
-                            <label for="senha">CONTATO: </label>
-                            <input type="text" required id="contatoAlterar">
+            <label for="nome">ULTIMA VEZ VISTO: </label>
+            <input type="text" required id="ultimaAlterar">
 
-                            <label for="senha">DETALHES DESAPARECIMENTO: </label>
-                            <textarea name="" id="detalhes-desaparecimentoAlterar" cols="20" rows="5"></textarea>
+            <label for="cpf">VESTIMENTAS: </label>
+            <input type="number" required id="vestimentasAlterar">
 
-                            <input type='submit' onclick='updateDesaparecido(${pessoa.id})'>
-                        </div>
-              `   
-                
-                modal.style.display = 'block';
-              
-          }
+            <label for="senha">DATA DESAPARECIMENTO: </label>
+            <input type="text" required id="dataAlterar">
+
+            <label for="senha">CARACTERISITICAS FISICAS: </label>
+            <input type="text" required id="caracteAlterar">
+
+            <label for="senha">CONTATO: </label>
+            <input type="text" required id="contatoAlterar">
+
+            <label for="senha">DETALHES DESAPARECIMENTO: </label>
+            <input type="text" id="detalhes-desaparecimentoAlterar">
+
+        </div>
+    </div>
+
+    <input type="submit" value="Alterar" id="btn" onclick="updateDesaparecido(${pessoa.id})">
+              `
+            modal.style.display = 'block';
+
+        }
 
 
 

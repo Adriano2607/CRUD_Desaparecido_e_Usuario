@@ -112,30 +112,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     z-index: 999;
 
 }
 
-#alterar{
-    display: grid;
-    grid-template-columns: 10% 1fr;
-    gap: 1em;
-    align-items: center;
-    background-color: #4D4B4B;
-    padding: 15px;
-    border-radius: 15px;
-}
-
-#alterar > input{
-    height: 25px;
-    border-radius: 5px;
-}
-
-#alterar > input[type=submit]{
-    grid-column: span 2;
-    cursor: pointer;
-}
 
 
 #modal {
@@ -151,6 +132,7 @@
     background-size: 100%;
     font-family: 'Rubik', sans-serif;
     color: white;
+  
 }
 
 footer{
